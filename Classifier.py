@@ -1,3 +1,5 @@
+# Created by Amy Law
+
 # Import Libraires/Modules
 import pandas as pd
 import pickle
@@ -15,6 +17,8 @@ dataframe = pd.read_csv('train.csv')
 # Convert the 0s in the Labels to True & the 1s to Fake
 conversion = {0: 'True',1: 'Fake'}
 dataframe['label'] = dataframe['label'].replace(conversion)
+
+# Created by Amy Law
 
 # Makes Sure that the Training Data is Relatively Balanced
 dataframe.label.value_counts()
@@ -38,6 +42,8 @@ PAC.fit(vecTrain,trainY)
 # Make Prediction on Test Set
 predY = PAC.predict(vecTest)
 score = accuracy_score(testY,predY)
+
+# Created by Amy Law
 
 # Model Evaluation
 print('')
@@ -66,6 +72,8 @@ def findLabel(newtext):
     predY1 = PAC.predict(vec_newtest)
     return predY1[0]
 
+# Created by Amy Law
+
 # Give Label 1 if it Predicts True, 0 if it Predicts False, get the 1s divided by Total
 print('')
 print('Predicting True Articles')
@@ -85,3 +93,5 @@ with open('model.model', 'wb') as f:
 print('')
 print('Saving Model')
 FileLink(r'model.model')
+
+# Created by Amy Law
